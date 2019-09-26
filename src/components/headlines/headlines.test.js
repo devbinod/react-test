@@ -3,6 +3,7 @@ import Adapter from "enzyme-adapter-react-16";
 import { shallow, configure } from "enzyme";
 import Headlines from "./index";
 import { findByTestAttr } from "../../../Utils/index";
+import checkPropTypes from 'check-prop-types'
 
 configure({ adapter: new Adapter() });
 
@@ -12,6 +13,32 @@ const setUp = (props = {}) => {
 };
 
 describe("Headlines component", () => {
+
+
+  describe('Checking PropTypes ', () => {
+
+    it('It should thorugh warning', () => {
+
+      const expectedProps = {
+
+        header: 'The header',
+        desc: 'Test desc',
+        tempArr: [{
+
+          fName: 'Test Fname',
+          lName: 'Test Lname',
+          email: 'test@gmail.com',
+          age: 24,
+          onlineStatus: false
+        }]
+      }
+
+      const propError  = checkPropTypes(Headlines.propTypes, expectedProps,'props', Headlines.name)
+      expect(propError).toBeUndefined()
+    })
+
+  })
+
   describe("Have props ", () => {
     let wrapper;
     beforeEach(() => {
