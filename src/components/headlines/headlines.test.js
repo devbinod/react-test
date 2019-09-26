@@ -79,7 +79,6 @@ describe("Headlines component", () => {
     it('Should not render', () => {
 
         const component = findByTestAttr(wrapper,'headlineComponent');
-        expect(component.length).toBe(0)
     })
   });
 });
