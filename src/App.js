@@ -35,7 +35,7 @@ class App extends React.Component {
     };
 
     return (
-      <div className="App">
+      <div data-test="aps">
         <Header />
         <section className="main">
           <Headlines
